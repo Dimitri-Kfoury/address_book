@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en">
+  <head>
+      <meta charset = "utf-8">
+      <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    
+  </head>
+
+  <body>
+    <div class="main-container">
+      <div class="left-container">
+        <button class="left-menu-button" id="add-button">
+          <i class="fa fa-plus"></i>
+        </button>
+        <button  class="left-menu-button" id="edit-button">
+          <i class="fa fa-edit"></i>
+        </button>
+        <button class="left-menu-button" id="delete-button">
+          <i class="fa fa-trash"></i>
+        </button>
+      </div>
+      <div class="central-container">
+        <div class="top-central-menu">
+          <button  class="top-central-menu-button" id="select-people-button">
+            <i style="margin-right: 5%" class="fa fa-user"></i>People
+          </button>
+          <button  class="top-central-menu-button" id="select-orgs-button">
+            <i style="margin-right: 5%" class="fa fa-building"></i>Organizations
+          </button>
+        </div>
+
+        <div class="search-container">
+          <input placeholder="Search" type="text" id="contact-search-input"/>
+        </div>
+        <div class="column-names-container">
+          <h1 class="column-name">Name</h1>
+          <h1 class="column-name">E-mail</h1>
+        </div>
+        <div class="contact-list-container">
+        
+        <ol class="organizations-list" id = 'organizations-list'>
+
+</ol>
+        
+        <ol class="contacts-list" id = 'contacts-list'>
+        
+        </ol>
+          
+        </div>
+      </div>
+      <div class="right-container">
+        <div class="details-header">
+          <h1>Details</h1>
+        </div>
+        <div class="details">
+
+
+        <div class='people-details' id="people-details">
+        <label class="details-label" for="first-name">First Name</label>
+<textarea
+  class="details-text-area"
+  name="first-name-text-area"
+  id="first-name-text-area"
+  cols="45"
+  rows="1"
+  disabled
+  
+></textarea>
+<label class="details-label" for="last-name">Last Name</label>
+<textarea
+  class="details-text-area"
+  name="last_name-text-area"
+  id="last-name-text-area"
+  cols="45"
+  rows="1"
+  disabled
+></textarea>
+<label class="details-label" for="e-mail">E-mail</label>
+<textarea
+  class="details-text-area"
+  name="email-text-area"
+  id="email-text-area"
+  cols="45"
+  rows="1"
+  disabled
+></textarea>
+<label class="details-label" for="telephone-number">Telephone number</label>
+<textarea
+  class="details-text-area"
+  name="telephone-number-text-area"
+  id="telephone-number-text-area"
+  cols="45"
+  rows="1"
+  disabled
+></textarea>
+<label class="details-label" for="address">Address</label>
+<textarea
+  class="details-text-area"
+  name="address-text-area"
+  id="address-text-area"
+  cols="45"
+  rows="3"
+  disabled
+></textarea>
+<label class="details-label" for="Organization">Organization</label>
+<textarea
+  class="details-text-area"
+  name="organization-text-area"
+  id="organization-text-area"
+  cols="45"
+  rows="1"
+  disabled
+></textarea>
+<div class='edit-buttons-container' id="people-edit-buttons-container">
+
+  <button class="submit-button" id = 'people-edit-save-button'> Save</button>
+  <button class="submit-button" id = 'people-cancel-edit-button'> cancel</button>
+  
+  </div>
+</div>
+
+<div class='organization-details' id='organization-details'>
+  <label class="details-label" for="organization-name">Name</label>
+<textarea
+class="details-text-area"
+name="organization-name-text-area"
+id="organization-name-text-area"
+cols="45"
+rows="1"
+disabled
+></textarea>
+
+<label class="details-label" for="organization-email" id="organization-email">E-mail</label>
+<textarea
+class="details-text-area"
+name="organization-email-text-area"
+id="organization-email-text-area"
+cols="45"
+rows="1"
+disabled
+></textarea>
+<label class="details-label" for="organization-telephone-number" id="organization-telephone-number">Telephone number</label>
+<textarea
+class="details-text-area"
+name="organization-telephone-number-text-area"
+id="organization-telephone-number-text-area"
+cols="45"
+rows="1"
+disabled
+></textarea>
+<label class="details-label" for="organization-address" id= "organization-address">Address</label>
+<textarea
+class="details-text-area"
+name="organization-address-text-area"
+id="organization-address-text-area"
+cols="45"
+rows="3"
+disabled
+></textarea>
+
+<div class='edit-buttons-container' id="orgs-edit-buttons-container">
+
+<button class="submit-button" id = 'orgs-edit-save-button'> Save</button>
+<button class="submit-button" id = 'orgs-cancel-edit-button'> cancel</button>
+
+</div>
+
+</div>
+
+        </div>
+        
+      </div>
+    </div>
+
+ 
+
+<div class="bg-user-modal">
+
+<div class="modal-content">
+
+<h1 class="modal-header"> Add User</h1>
+    <form action="add-user.php" class="modal-form" method="post"> 
+
+<input  type="text" class="modal-input" id = "first-name-input" required name="first-name-input" placeholder = "First name">
+<input type="text" class="modal-input" name="last-name-input" required placeholder = "Last name">
+<input type="email" class="modal-input" name="email-input"  required placeholder = "E_mail">
+<input type="tel" class="modal-input" name="telephone-number-input" required placeholder = "Telephone number">
+<input type="text" class="modal-input" name="address-input" required placeholder = "Address">
+<input type="text" class="modal-input" name="organization-input" required placeholder = "Organization">
+<br>
+<div style="width: 100%;" class="buttons-enclosure">
+<input type="submit" class="submit-button" value="Add" >  </input>
+<a href="index.html" > Cancel </a>
+</div>
+
+
+
+</form>
+
+</div>
+
+</div>
+
+<div class="bg-org-modal">
+
+  <div class="modal-content">
+  
+  <h1 class="modal-header"> Add Organization</h1>
+      <form action="add-org.php" class="modal-form" method="post"> 
+  
+  <input  type="text" class="modal-input" name = "organization-name-input" required  placeholder = "Name">
+  <input type="email" class="modal-input" name="organization-email-input"  required placeholder = "E_mail">
+  <input type="tel" class="modal-input" name="organization-telephone-number-input" required placeholder = "Telephone number">
+  <input type="text" class="modal-input" name="organization-address-input" required placeholder = "Address">
+  
+  <br>
+  <div style="width: 100%;" class="buttons-enclosure">
+  <input type="submit" class="submit-button" value="Add" >  </input>
+  <a href="index.html" > Cancel </a>
+  </div>
+
+  
+
+  </body>
+
+
+</html>
+
+<script src="script.js"> defer </script>
